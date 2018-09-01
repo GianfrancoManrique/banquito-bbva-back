@@ -14,43 +14,42 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.prueba.model.Persona;
-import com.prueba.service.IPersonaService;
+import com.prueba.model.Usuario;
+import com.prueba.service.IUsuarioService;
 
 @RestController
-@RequestMapping(value = "/personas")
-//@CrossOrigin(origins = "http://localhost:4200")
-public class PersonaController {
+@RequestMapping(value = "/usuarios")
+public class UsuarioController {
 
 	@Autowired
-	private IPersonaService service;
+	private IUsuarioService service;
 	
 	@GetMapping
-	public List<Persona> listar(){
+	public List<Usuario> listar(){
 		return service.listar();
 	}
 	
 	@GetMapping(value = "/{id}")
-	public Persona listarPorId(@PathVariable("id") Integer id){
-		Optional<Persona> op = service.listarPorId(id);
-		return op.isPresent() ? op.get() : new Persona();
+	public Usuario listarPorId(@PathVariable("id") Integer id){
+		Optional<Usuario> op = service.listarPorId(id);
+		return op.isPresent() ? op.get() : new Usuario();
 	}
 	
 	@PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Persona registrar(@RequestBody Persona persona) {
+	public Usuario registrar(@RequestBody Usuario persona) {
 		return service.registrar(persona);
 	}
 
 	@PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
-	public Persona modificar(@RequestBody Persona persona) {
+	public Usuario modificar(@RequestBody Usuario persona) {
 		return service.modificar(persona);
 	}
 
 	@DeleteMapping(value = "/{id}")
 	public Integer eliminar(@PathVariable("id") Integer id) {
-		Optional<Persona> opt = service.listarPorId(id);
+		Optional<Usuario> opt = service.listarPorId(id);
 		if (opt.isPresent()) {
-			Persona per = new Persona();
+			Usuario per = new Usuario();
 			per.setId(id);
 			service.eliminar(per);
 			return 1;
