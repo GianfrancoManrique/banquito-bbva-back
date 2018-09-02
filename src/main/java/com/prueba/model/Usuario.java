@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "usuario")
+@Table(name = "tbUsuario")
 public class Usuario {
 
 	@Id
@@ -18,9 +18,12 @@ public class Usuario {
 	private Integer id;	
 	private String nombres;
 	private String apellidos;
+	@Column(name="correo_electronico")
 	private String correo;
+	@Column(name="numero_celular")
 	private String numeroCelular;
 	private String dni;
+	@Column(name="fecha_nacimiento")
 	private Date fechaNacimiento;
 	public Date getFechaNacimiento() {
 		return fechaNacimiento;
@@ -82,7 +85,7 @@ public class Usuario {
 			return false;
 		return true;
 	}
-	@Column(name="correo_electronico")
+	
 	public String getCorreo() {
 		return correo;
 	}
@@ -90,7 +93,7 @@ public class Usuario {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	@Column(name="numero_celular")
+	
 	public String getNumeroCelular() {
 		return numeroCelular;
 	}
