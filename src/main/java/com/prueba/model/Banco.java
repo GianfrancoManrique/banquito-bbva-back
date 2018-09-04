@@ -35,6 +35,8 @@ public class Banco {
 	@Column(name="fecha_creacion")
 	private Date fechaCreacion;
 	
+	@Column(name="palabra_clave")
+	private String palabraClave;
 
 	public Integer getId() {
 		return id;
@@ -109,6 +111,16 @@ public class Banco {
 
 	public void setFechaCreacion(Date fechaCreacion) {
 		this.fechaCreacion = fechaCreacion;
+	}
+
+	
+	
+	public String getPalabraClave() {
+		return palabraClave;
+	}
+
+	public void setPalabraClave(String palabraClave) {
+		this.palabraClave = palabraClave;
 	}
 
 	@Override

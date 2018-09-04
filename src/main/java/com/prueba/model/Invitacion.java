@@ -28,8 +28,7 @@ public class Invitacion {
 	@Column(name="fecha_envio")
 	private Date fechaEnvio;
 	
-	@Column(name="palabra_clave")
-	private String palabraClave;
+
 	private Boolean estado;
 	
 
@@ -81,13 +80,6 @@ public class Invitacion {
 		this.estado = estado;
 	}
 
-	public String getPalabraClave() {
-		return palabraClave;
-	}
-
-	public void setPalabraClave(String palabraClave) {
-		this.palabraClave = palabraClave;
-	}
 
 	@Override
 	public int hashCode() {
